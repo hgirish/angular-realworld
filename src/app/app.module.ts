@@ -5,13 +5,14 @@ import { RouterModule } from '@angular/router'
 import { AppComponent } from './app.component'
 import { SharedModule, FooterComponent, HeaderComponent } from './shared'
 import { HomeModule } from './home/home.module'
+import { AuthModule } from './auth/auth.module'
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([], {
   useHash: true
 })
 @NgModule({
   declarations: [AppComponent, FooterComponent, HeaderComponent],
-  imports: [BrowserModule, SharedModule, HomeModule, rootRouting],
+  imports: [BrowserModule, AuthModule, SharedModule, HomeModule, rootRouting],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, Input } from '@angular/core'
 
 @Component({
   selector: 'layout-footer',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core'
 })
 export class FooterComponent implements OnInit {
   today: number = Date.now()
+  @Input() version
   constructor() {}
 
   ngOnInit() {}
