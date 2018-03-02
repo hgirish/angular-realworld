@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { HttpModule } from '@angular/http'
 import { RouterModule } from '@angular/router'
 import { ListErrorsComponent } from './list-errors.component'
+import { ShowAuthedDirective } from './show-authed.directive'
 
 @NgModule({
   imports: [
@@ -13,14 +14,15 @@ import { ListErrorsComponent } from './list-errors.component'
     HttpModule,
     RouterModule
   ],
-  declarations: [ListErrorsComponent],
+  declarations: [ListErrorsComponent, ShowAuthedDirective],
   exports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
     RouterModule,
-    ListErrorsComponent
+    ListErrorsComponent,
+    ShowAuthedDirective
   ]
 })
 export class SharedModule {}
