@@ -8,6 +8,7 @@ import 'rxjs/add/operator/catch'
 
 import { ApiService } from './api.service'
 import { User } from '../models'
+import { JwtService } from './jwt.service'
 
 @Injectable()
 export class UserService {
@@ -16,14 +17,37 @@ export class UserService {
     .asObservable()
     .distinctUntilChanged()
 
-  private isAuthenticatedSubject = new BehaviorSubject<boolean>(false)
+  private isAuthenticatedSubject = new ReplaySubject<boolean>(1)
   public isAuhenticated = this.isAuthenticatedSubject.asObservable()
 
-  constructor(private apiService: ApiService, private http: Http) {}
+  constructor(
+    private apiService: ApiService,
+    private http: Http,
+    private jwtService: JwtService
+  ) {}
+
+  populate() {
+    if (this.jwtService.getToken()) {
+      this.apiService
+        .get('/user')
+        .subscribe(data => this.setAuth(data.user), err => this.purgeAuth())
+    } else {
+      this.purgeAuth()
+    }
+  }
 
   setAuth(user: User) {
+    this.jwtService.saveToken(user.token)
     this.currentUserSubject.next(user)
     this.isAuthenticatedSubject.next(true)
+  }
+
+  purgeAuth() {
+    this.jwtService.destroyToken()
+
+    this.currentUserSubject.next(new User())
+
+    this.isAuthenticatedSubject.next(false)
   }
 
   attemptAuth(type, credentials): Observable<User> {

@@ -8,6 +8,7 @@ import {
   UserService,
   SharedModule,
   FooterComponent,
+  JwtService,
   HeaderComponent
 } from './shared'
 import { HomeModule } from './home/home.module'
@@ -19,7 +20,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], {
 @NgModule({
   declarations: [AppComponent, FooterComponent, HeaderComponent],
   imports: [BrowserModule, AuthModule, SharedModule, HomeModule, rootRouting],
-  providers: [ApiService, UserService],
+  providers: [ApiService, UserService, JwtService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
