@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser'
 import { NgModule, ModuleWithProviders } from '@angular/core'
 import { RouterModule } from '@angular/router'
-
+import { SettingsModule } from './settings/settings.module'
 import { AppComponent } from './app.component'
 import {
   ApiService,
@@ -20,7 +20,14 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], {
 })
 @NgModule({
   declarations: [AppComponent, FooterComponent, HeaderComponent],
-  imports: [BrowserModule, AuthModule, SharedModule, HomeModule, rootRouting],
+  imports: [
+    SettingsModule,
+    BrowserModule,
+    AuthModule,
+    SharedModule,
+    HomeModule,
+    rootRouting
+  ],
   providers: [ApiService, UserService, JwtService, AuthGuardService],
   bootstrap: [AppComponent]
 })
