@@ -12,10 +12,13 @@ import {
   JwtService,
   HeaderComponent,
   AuthGuardService,
-  ProfilesService
+  ProfilesService,
+  ArticlesService
 } from './shared'
+import { EditorModule } from './editor/editor.module'
 import { HomeModule } from './home/home.module'
 import { AuthModule } from './auth/auth.module'
+//import { EditorComponent } from './editor/editor.component'
 // import { ProfileComponent } from './profile/profile.component'
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([], {
@@ -26,6 +29,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], {
     AppComponent,
     FooterComponent,
     HeaderComponent
+    //EditorComponent
     //ProfileComponent
   ],
   imports: [
@@ -35,6 +39,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], {
     ProfileModule,
     SharedModule,
     HomeModule,
+    EditorModule,
     rootRouting
   ],
   providers: [
@@ -42,6 +47,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], {
     ProfilesService,
     UserService,
     JwtService,
+    ArticlesService,
     AuthGuardService
   ],
   bootstrap: [AppComponent]
