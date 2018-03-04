@@ -18,8 +18,10 @@ import {
 import { EditorModule } from './editor/editor.module'
 import { HomeModule } from './home/home.module'
 import { AuthModule } from './auth/auth.module'
+//import { ArticleComponent } from './article/article.component'
 //import { EditorComponent } from './editor/editor.component'
 // import { ProfileComponent } from './profile/profile.component'
+import { ArticleModule } from './article/article.module'
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([], {
   useHash: true
@@ -29,12 +31,14 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], {
     AppComponent,
     FooterComponent,
     HeaderComponent
+    // ArticleComponent
     //EditorComponent
     //ProfileComponent
   ],
   imports: [
     SettingsModule,
     BrowserModule,
+    ArticleModule,
     AuthModule,
     ProfileModule,
     SharedModule,
