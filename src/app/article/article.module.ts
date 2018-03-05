@@ -4,7 +4,8 @@ import { RouterModule } from '@angular/router'
 import { ArticleComponent } from './article.component'
 import { ArticleResolverService } from './article-resolver.service'
 import { MarkdownPipe } from './markdown.pipe'
-import { SharedModule } from '../shared'
+import { SharedModule } from '../shared';
+import { ArticleCommentComponent } from './article-comment.component'
 
 const articleRouting: ModuleWithProviders = RouterModule.forChild([
   {
@@ -18,7 +19,7 @@ const articleRouting: ModuleWithProviders = RouterModule.forChild([
 
 @NgModule({
   imports: [articleRouting, SharedModule],
-  declarations: [ArticleComponent, MarkdownPipe],
+  declarations: [ArticleComponent, MarkdownPipe, ArticleCommentComponent],
   providers: [ArticleResolverService]
 })
 export class ArticleModule {}

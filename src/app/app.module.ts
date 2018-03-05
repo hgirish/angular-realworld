@@ -6,6 +6,7 @@ import { AppComponent } from './app.component'
 import { ProfileModule } from './profile/profile.module'
 import {
   ApiService,
+  CommentsService,
   UserService,
   SharedModule,
   FooterComponent,
@@ -48,6 +49,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], {
   ],
   providers: [
     ApiService,
+    CommentsService,
     ProfilesService,
     UserService,
     JwtService,
