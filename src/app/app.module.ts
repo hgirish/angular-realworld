@@ -14,7 +14,8 @@ import {
   HeaderComponent,
   AuthGuardService,
   ProfilesService,
-  ArticlesService
+  ArticlesService,
+  TagsService
 } from './shared'
 import { EditorModule } from './editor/editor.module'
 import { HomeModule } from './home/home.module'
@@ -54,7 +55,8 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], {
     UserService,
     JwtService,
     ArticlesService,
-    AuthGuardService
+    AuthGuardService,
+    TagsService
   ],
   bootstrap: [AppComponent]
 })
